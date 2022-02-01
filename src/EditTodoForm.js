@@ -8,13 +8,13 @@ import { TodosContext } from './contexts/todos.context';
 
 export default function EditTodoForm({ id, task, toggleEditForm }) {
   const [value, handleChange, reset] = useInputState(task);
-  const { editTodo } = useContext(TodosContext);
+  const { dispatch } = useContext(TodosContext);
   return (
     <>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          editTodo(id, value);
+          dispatch({ type: 'EDIT', id: id, newTask: value });
           reset();
           toggleEditForm();
           // this will change isEditing in the parent
@@ -32,7 +32,7 @@ export default function EditTodoForm({ id, task, toggleEditForm }) {
       <ListItemSecondaryAction>
         <IconButton
           onClick={() => {
-            editTodo(id, value);
+            dispatch({ type: 'EDIT', id: id, newTask: value });
             // reset();
             toggleEditForm();
           }}
