@@ -4,11 +4,12 @@ import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 import IconButton from '@material-ui/core/IconButton';
 import CancelIcon from '@material-ui/icons/Cancel';
 import useInputState from './hooks/useInputState';
-import { TodosContext } from './contexts/todos.context';
+import { DispatchContext } from './contexts/todos.context';
 
 export default function EditTodoForm({ id, task, toggleEditForm }) {
   const [value, handleChange, reset] = useInputState(task);
-  const { dispatch } = useContext(TodosContext);
+  const dispatch = useContext(DispatchContext);
+  // console.log('EDIT FORM RENDER');
   return (
     <>
       <form
