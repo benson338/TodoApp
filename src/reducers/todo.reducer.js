@@ -25,3 +25,5 @@ const reducer = (state, action) => {
 // {type: 'EDIT', id: 344243, newTask: 'Walk the cat'}
 
 export default reducer;
+
+// only if we pass down reducer, we can use dispatch with action object

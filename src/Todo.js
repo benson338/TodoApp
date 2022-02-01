@@ -15,7 +15,7 @@ import { DispatchContext } from './contexts/todos.context';
 export default memo(function Todo({ id, task, completed }) {
   const [isEditing, toggle] = useToggleState(false);
   const dispatch = useContext(DispatchContext);
-  console.log('TODO RE-RENDER', task);
+  // console.log('TODO RE-RENDER', task);
   return (
     <ListItem style={{ height: '64px' }}>
       {isEditing ? (
